@@ -33,6 +33,7 @@ var props = []
 func add_property(object, property, display):
 	var l = Label.new()
 	l.set("custom_fonts/font", load("res://debug/roboto_16.tres"))
+	l.mouse_filter = MOUSE_FILTER_IGNORE
 	$Column.add_child(l)
 	props.append(Property.new(object, property, l, display))
 
