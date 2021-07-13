@@ -44,10 +44,10 @@ func roll(dir):
 
 	## Finalize movement and reverse the offset
 	transform.origin += dir * 2
-#	var b = mesh.global_transform.basis
+	var b = mesh.global_transform.basis
 	pivot.transform = Transform.IDENTITY
 	mesh.transform.origin = Vector3(0, 1, 0)
-#	mesh.global_transform.basis = b
+	mesh.global_transform.basis = b
 
 	# Cast ray down after move
 	space = get_world().direct_space_state

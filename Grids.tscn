@@ -1,7 +1,17 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://assets/prototype_textures/Dark/texture_04.png" type="Texture" id=1]
-[ext_resource path="res://assets/prototype_textures/Light/texture_11.png" type="Texture" id=2]
+[ext_resource path="res://assets/prototype_textures/Light/texture_03.png" type="Texture" id=2]
+[ext_resource path="res://assets/prototype_textures/Green/texture_05.png" type="Texture" id=3]
+[ext_resource path="res://assets/prototype_textures/Orange/texture_05.png" type="Texture" id=4]
+[ext_resource path="res://assets/prototype_textures/Red/texture_05.png" type="Texture" id=5]
+[ext_resource path="res://assets/prototype_textures/Purple/texture_05.png" type="Texture" id=6]
+[ext_resource path="res://assets/prototype_textures/Dark/texture_03.png" type="Texture" id=7]
+[ext_resource path="res://assets/prototype_textures/Light/texture_02.png" type="Texture" id=8]
+[ext_resource path="res://assets/prototype_textures/Green/texture_02.png" type="Texture" id=9]
+[ext_resource path="res://assets/prototype_textures/Purple/texture_02.png" type="Texture" id=10]
+[ext_resource path="res://assets/prototype_textures/Orange/texture_02.png" type="Texture" id=11]
+[ext_resource path="res://assets/prototype_textures/Red/texture_02.png" type="Texture" id=12]
 
 [sub_resource type="SpatialMaterial" id=1]
 albedo_texture = ExtResource( 1 )
@@ -20,23 +30,194 @@ uv1_scale = Vector3( 3, 2, 1 )
 [sub_resource type="CubeMesh" id=5]
 material = SubResource( 4 )
 
+[sub_resource type="SpatialMaterial" id=6]
+albedo_texture = ExtResource( 3 )
+uv1_scale = Vector3( 3, 2, 1 )
+
+[sub_resource type="CubeMesh" id=7]
+material = SubResource( 6 )
+
+[sub_resource type="SpatialMaterial" id=8]
+albedo_texture = ExtResource( 4 )
+uv1_scale = Vector3( 3, 2, 1 )
+
+[sub_resource type="CubeMesh" id=9]
+material = SubResource( 8 )
+
+[sub_resource type="SpatialMaterial" id=10]
+albedo_texture = ExtResource( 6 )
+uv1_scale = Vector3( 3, 2, 1 )
+
+[sub_resource type="CubeMesh" id=11]
+material = SubResource( 10 )
+
+[sub_resource type="SpatialMaterial" id=12]
+albedo_texture = ExtResource( 5 )
+uv1_scale = Vector3( 3, 2, 1 )
+
+[sub_resource type="CubeMesh" id=13]
+material = SubResource( 12 )
+
+[sub_resource type="SpatialMaterial" id=14]
+albedo_texture = ExtResource( 7 )
+uv1_scale = Vector3( 3, 2, 1 )
+
+[sub_resource type="CubeMesh" id=15]
+material = SubResource( 14 )
+
+[sub_resource type="SpatialMaterial" id=16]
+albedo_texture = ExtResource( 8 )
+uv1_scale = Vector3( 3, 2, 1 )
+
+[sub_resource type="CubeMesh" id=17]
+material = SubResource( 16 )
+
+[sub_resource type="SpatialMaterial" id=18]
+albedo_texture = ExtResource( 9 )
+uv1_scale = Vector3( 3, 2, 1 )
+
+[sub_resource type="CubeMesh" id=19]
+material = SubResource( 18 )
+
+[sub_resource type="SpatialMaterial" id=20]
+albedo_texture = ExtResource( 11 )
+uv1_scale = Vector3( 3, 2, 1 )
+
+[sub_resource type="CubeMesh" id=21]
+material = SubResource( 20 )
+
+[sub_resource type="SpatialMaterial" id=22]
+albedo_texture = ExtResource( 10 )
+uv1_scale = Vector3( 3, 2, 1 )
+
+[sub_resource type="CubeMesh" id=23]
+material = SubResource( 22 )
+
+[sub_resource type="SpatialMaterial" id=24]
+albedo_texture = ExtResource( 12 )
+uv1_scale = Vector3( 3, 2, 1 )
+
+[sub_resource type="CubeMesh" id=25]
+material = SubResource( 24 )
+
 [node name="Grids" type="Spatial"]
 
-[node name="MeshInstance" type="MeshInstance" parent="."]
+[node name="BlackCross" type="MeshInstance" parent="."]
 mesh = SubResource( 2 )
 material/0 = null
 
-[node name="StaticBody" type="StaticBody" parent="MeshInstance"]
+[node name="StaticBody" type="StaticBody" parent="BlackCross"]
 
-[node name="CollisionShape" type="CollisionShape" parent="MeshInstance/StaticBody"]
+[node name="CollisionShape" type="CollisionShape" parent="BlackCross/StaticBody"]
 shape = SubResource( 3 )
 
-[node name="MeshInstance2" type="MeshInstance" parent="."]
+[node name="WhiteCross" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0 )
 mesh = SubResource( 5 )
 material/0 = null
 
-[node name="StaticBody" type="StaticBody" parent="MeshInstance2"]
+[node name="StaticBody" type="StaticBody" parent="WhiteCross"]
 
-[node name="CollisionShape" type="CollisionShape" parent="MeshInstance2/StaticBody"]
+[node name="CollisionShape" type="CollisionShape" parent="WhiteCross/StaticBody"]
+shape = SubResource( 3 )
+
+[node name="GreenCross" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0 )
+mesh = SubResource( 7 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="GreenCross"]
+
+[node name="CollisionShape" type="CollisionShape" parent="GreenCross/StaticBody"]
+shape = SubResource( 3 )
+
+[node name="OrangeCross" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 0 )
+mesh = SubResource( 9 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="OrangeCross"]
+
+[node name="CollisionShape" type="CollisionShape" parent="OrangeCross/StaticBody"]
+shape = SubResource( 3 )
+
+[node name="PurpleCross" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, 0 )
+mesh = SubResource( 11 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="PurpleCross"]
+
+[node name="CollisionShape" type="CollisionShape" parent="PurpleCross/StaticBody"]
+shape = SubResource( 3 )
+
+[node name="RedCross" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 0 )
+mesh = SubResource( 13 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="RedCross"]
+
+[node name="CollisionShape" type="CollisionShape" parent="RedCross/StaticBody"]
+shape = SubResource( 3 )
+
+[node name="BlackGrid" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5 )
+mesh = SubResource( 15 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="BlackGrid"]
+
+[node name="CollisionShape" type="CollisionShape" parent="BlackGrid/StaticBody"]
+visible = false
+shape = SubResource( 3 )
+
+[node name="WhiteGrid" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -5 )
+mesh = SubResource( 17 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="WhiteGrid"]
+
+[node name="CollisionShape" type="CollisionShape" parent="WhiteGrid/StaticBody"]
+shape = SubResource( 3 )
+
+[node name="GreenGrid" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -5 )
+mesh = SubResource( 19 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="GreenGrid"]
+
+[node name="CollisionShape" type="CollisionShape" parent="GreenGrid/StaticBody"]
+shape = SubResource( 3 )
+
+[node name="OrangeGrid" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, -5 )
+mesh = SubResource( 21 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="OrangeGrid"]
+
+[node name="CollisionShape" type="CollisionShape" parent="OrangeGrid/StaticBody"]
+shape = SubResource( 3 )
+
+[node name="PurpleGrid" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, -5 )
+mesh = SubResource( 23 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="PurpleGrid"]
+
+[node name="CollisionShape" type="CollisionShape" parent="PurpleGrid/StaticBody"]
+shape = SubResource( 3 )
+
+[node name="RedGrid" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, -5 )
+mesh = SubResource( 25 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="RedGrid"]
+
+[node name="CollisionShape" type="CollisionShape" parent="RedGrid/StaticBody"]
 shape = SubResource( 3 )

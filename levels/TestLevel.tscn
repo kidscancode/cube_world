@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://levels/gridmeshes_01.tres" type="MeshLibrary" id=1]
+[ext_resource path="res://cube/CubePlayer.tscn" type="PackedScene" id=2]
+[ext_resource path="res://items/Goal.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Block.tscn" type="PackedScene" id=4]
+
+[node name="TestLevel" type="Spatial"]
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 13, 10, 18.1244 )
+
+[node name="CubePlayer" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1, 1 )
+
+[node name="GridMap" type="GridMap" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0 )
+mesh_library = ExtResource( 1 )
+data = {
+"cells": PoolIntArray( 0, 0, 6, 1, 0, 6, 2, 0, 6, 3, 0, 6, 4, 0, 6, 5, 0, 6, 6, 0, 6, 7, 0, 6, 0, 1, 6, 1, 1, 6, 2, 1, 6, 3, 1, 6, 4, 1, 6, 4, 65530, 6, 5, 65530, 6, 6, 65530, 6, 7, 65530, 6, 6, 65531, 6, 7, 65531, 6, 7, 65532, 6, 7, 65533, 6, 7, 65534, 6, 0, 65535, 6, 1, 65535, 6, 2, 65535, 6, 3, 65535, 6, 4, 65535, 6, 7, 65535, 6 )
+}
+__meta__ = {
+"_editor_clip_": 0,
+"_editor_floor_": Vector3( 0, 0, 0 )
+}
+
+[node name="Goal" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 1, -11 )
+
+[node name="Block" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 2, -11 )
