@@ -13,6 +13,7 @@ material = SubResource( 3 )
 [sub_resource type="BoxShape" id=2]
 
 [node name="CubePlayer" type="Area"]
+collision_layer = 3
 script = ExtResource( 1 )
 
 [node name="Pivot" type="Spatial" parent="."]
