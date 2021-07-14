@@ -56,7 +56,7 @@ func check_collision(dir):
 			mesh.global_transform.origin + dir * 2.5, [self],
 			2147483647, true, true)
 	if collision:
-		if collision.collider.pushable:
+		if collision.collider.has_method("push"):
 			collision.collider.push(dir)
 			return false
 		return true

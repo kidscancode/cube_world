@@ -12,7 +12,7 @@ var colors = [Color(.08, .60, .41), Color(.86, .14, .9), Color(1, 1, 1)]
 var mats = [
 	preload("res://items/materials/goal.tres"),
 	preload("res://items/materials/teleporter.tres"),
-	preload("res://items/materials/teleporter.tres")
+	preload("res://items/materials/door_plate.tres")
 ]
 
 func _ready():
@@ -54,3 +54,16 @@ func disable():
 	monitoring = true
 
 
+func _on_Trigger_body_entered(body):
+	print(body.name)
+	if type == types.PRESSURE_PLATE:
+		if !target:
+			return
+		target.open()
+
+
+func _on_Trigger_body_exited(body):
+	if type == types.PRESSURE_PLATE:
+		if !target:
+			return
+		target.close()
