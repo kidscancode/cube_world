@@ -1,6 +1,6 @@
 extends Area
 
-var up = false
+var up = true
 
 onready var spikes = $spikes
 onready var tween = $Tween

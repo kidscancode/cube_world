@@ -81,7 +81,7 @@ func fall():
 		die()
 	else:
 		# What's under us?
-		var ground = collision["collider"]
+#		var ground = collision["collider"]
 		var pos = collision["position"]
 		var dist = transform.origin.distance_to(pos)
 		if dist > 1:

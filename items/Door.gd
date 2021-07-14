@@ -12,7 +12,7 @@ func open():
 	tween.start()
 	
 func close():
-terpolate_property(door, "transform:origin", null,
+	tween.interpolate_property(door, "transform:origin", null,
 			Vector3.ZERO, 1/speed,
 			Tween.TRANS_LINEAR, Tween.EASE_OUT)
 	tween.start()
