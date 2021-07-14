@@ -55,7 +55,6 @@ func disable():
 
 
 func _on_Trigger_body_entered(body):
-	print(body.name)
 	if type == types.PRESSURE_PLATE:
 		if !target:
 			return
