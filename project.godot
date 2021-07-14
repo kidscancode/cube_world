@@ -13,9 +13,21 @@ _global_script_classes=[ {
 "class": "CubeBase",
 "language": "GDScript",
 "path": "res://cube/CubeBase.gd"
+}, {
+"base": "Spatial",
+"class": "Level",
+"language": "GDScript",
+"path": "res://levels/TestLevel.gd"
+}, {
+"base": "Area",
+"class": "Trigger",
+"language": "GDScript",
+"path": "res://items/Trigger.gd"
 } ]
 _global_script_class_icons={
-"CubeBase": ""
+"CubeBase": "",
+"Level": "",
+"Trigger": ""
 }
 
 [application]

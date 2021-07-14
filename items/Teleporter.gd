@@ -10,5 +10,7 @@ func disable():
 	monitoring = true
 	
 func _on_Teleporter_area_entered(area):
+	if !target:
+		return
 	target.disable()
 	area.global_transform.origin = target.global_transform.origin

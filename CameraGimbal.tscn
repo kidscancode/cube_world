@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://CameraGimbal.gd" type="Script" id=1]
+[ext_resource path="res://env1.tres" type="Environment" id=2]
 
 [node name="CameraGimbal" type="Spatial"]
 script = ExtResource( 1 )
@@ -10,3 +11,4 @@ transform = Transform( 1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 0, 0 )
 
 [node name="Camera" type="Camera" parent="InnerGimbal"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4 )
+environment = ExtResource( 2 )
