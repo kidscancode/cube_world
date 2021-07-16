@@ -10,3 +10,4 @@ func push(dir):
 			transform.origin + dir * 2, 0.25,
 			Tween.TRANS_SINE, Tween.EASE_IN)
 	tween.start()
+

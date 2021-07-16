@@ -33,6 +33,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Cube World"
+run/main_scene="res://levels/TestLevel.tscn"
 config/icon="res://assets/prototype_textures/Orange/texture_13.png"
 
 [autoload]

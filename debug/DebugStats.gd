@@ -40,6 +40,7 @@ func add_property(object, property, display):
 func remove_property(object, property):
 	for prop in props:
 		if prop.object == object and prop.property == property:
+			prop.label_ref.queue_free()
 			props.erase(prop)
 	
 func _process(_delta):
@@ -47,3 +48,7 @@ func _process(_delta):
 		return
 	for prop in props:
 		prop.set_string()
+
+func clear_properties():
+	for prop in props:
+		remove_property(prop.object, prop.property)

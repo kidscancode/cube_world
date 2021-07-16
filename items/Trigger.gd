@@ -2,6 +2,8 @@
 extends Area
 class_name Trigger
 
+signal level_completed
+
 enum types{GOAL, TELEPORTER, PRESSURE_PLATE}
 export (types) var type # setget update_type
 
@@ -30,11 +32,14 @@ func _on_Trigger_area_entered(area):
 	match type:
 		types.GOAL:
 			print("Win!")
+			emit_signal("level_completed")
 		types.TELEPORTER:
 			if !target:
 				return
 			target.disable()
-			area.global_transform.origin = target.global_transform.origin
+#			area.can_move = false
+			area.teleport(target.global_transform.origin)
+#			area.global_transform.origin = target.global_transform.origin
 		types.PRESSURE_PLATE:
 			if !target:
 				return
@@ -50,7 +55,7 @@ func _on_Trigger_area_exited(_area):
 
 func disable():
 	monitoring = false
-	yield(get_tree().create_timer(0.2), "timeout")
+	yield(get_tree().create_timer(1), "timeout")
 	monitoring = true
 
 

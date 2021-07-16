@@ -37,7 +37,7 @@ void fragment()
 
 [sub_resource type="ShaderMaterial" id=2]
 shader = SubResource( 1 )
-shader_param/water_color = Color( 0.231373, 0.541176, 0.670588, 0.835294 )
+shader_param/water_color = Color( 0.231373, 0.541176, 0.670588, 0.854902 )
 shader_param/foam_color = Color( 1, 1, 1, 1 )
 shader_param/foam_max_threshold = 1.0
 shader_param/displace_amount = 3.0
@@ -54,3 +54,6 @@ size = Vector2( 50, 50 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11, -2, 6 )
 mesh = SubResource( 3 )
 material/0 = null
+__meta__ = {
+"_edit_lock_": true
+}

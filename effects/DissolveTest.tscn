@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/cube_test_green_04.gltf" type="PackedScene" id=1]
+[ext_resource path="res://effects/DissolveTest.gd" type="Script" id=2]
+
+[node name="DissolveTest" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="Tween" type="Tween" parent="." index="1"]
+
+[node name="Timer" type="Timer" parent="." index="2"]
+autostart = true
+
+[node name="Camera" type="Camera" parent="." index="3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7 )
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

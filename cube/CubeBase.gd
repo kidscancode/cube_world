@@ -11,9 +11,11 @@ export (Texture) var override_texture
 onready var pivot = $Pivot
 onready var mesh = $Pivot/MeshInstance
 onready var tween = $Tween
+var can_move = true
 
 func _ready():
-	tween.connect("tween_step", self, "_on_Tween_tween_step")
+	pivot.set_disable_scale(true)
+#	tween.connect("tween_step", self, "_on_Tween_tween_step")
 	mesh.mesh = mesh.mesh.duplicate()
 	if override_texture:
 		mesh.mesh.material = mesh.mesh.material.duplicate()
@@ -25,6 +27,7 @@ func roll(dir):
 	if check_collision(dir):
 		return
 	
+	can_move = false
 	## Offset the pivot
 	pivot.translate(dir)
 	mesh.global_translate(-dir)
@@ -43,11 +46,18 @@ func roll(dir):
 	pivot.transform = Transform.IDENTITY
 	mesh.transform.origin = Vector3(0, 1, 0)
 	mesh.global_transform.basis = b
+	
+	# TODO: clean up.
+	# Wait for area_entered to fire so movement will stop on triggers
+	yield(get_tree(), "physics_frame")
+	yield(get_tree(), "physics_frame")
+	can_move = true
 
 	emit_signal("roll_complete")
 
-func _on_Tween_tween_step(_object, _key, _elapsed, _value):
-	pivot.transform = pivot.transform.orthonormalized()
+#func _on_Tween_tween_step(_object, _key, _elapsed, _value):
+#	pass
+#	pivot.transform = pivot.transform.orthonormalized()
 
 func check_collision(dir):
 	# cast a ray before moving to check for obstacles
@@ -96,4 +106,5 @@ func fall():
 #			ground.set_cell_item(c.x, c.y, c.z, 1)
 
 func die():
+	DebugOverlay.stats.clear_properties()
 	get_tree().reload_current_scene()
