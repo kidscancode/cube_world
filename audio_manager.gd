@@ -21,8 +21,8 @@ func _on_stream_finished(stream):
 	available.append(stream)
 
 
-func play(sound_path):
-	queue.append(sound_path)
+func play(sound_path, vol=0.0):
+	queue.append([sound_path, vol])
 	if available.empty():
 		print("full")
 
@@ -30,6 +30,8 @@ func play(sound_path):
 func _process(_delta):
 	# Play a queued sound if any players are available.
 	if not queue.empty() and not available.empty():
-		available[0].stream = load(queue.pop_front())
+		var next = queue.pop_front()
+		available[0].stream = next[0]
+		available[0].volume_db = next[1]
 		available[0].play()
 		available.pop_front()

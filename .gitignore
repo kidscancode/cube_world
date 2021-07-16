@@ -1,4 +1,4 @@
-
+*.ogg
 # Godot-specific ignores
 .import/
 export.cfg

@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://cube/CubePlayer.gd" type="Script" id=1]
 [ext_resource path="res://assets/green_inset_01.png" type="Texture" id=2]
 [ext_resource path="res://assets/cube_test_green_04.gltf" type="PackedScene" id=3]
+[ext_resource path="res://assets/sounds/Click_Standard_03.wav" type="AudioStream" id=4]
 
 [sub_resource type="SpatialMaterial" id=1]
 albedo_texture = ExtResource( 2 )
@@ -17,6 +18,7 @@ material = SubResource( 1 )
 [node name="CubePlayer" type="Area"]
 collision_layer = 3
 script = ExtResource( 1 )
+move_sound = ExtResource( 4 )
 
 [node name="Pivot" type="Spatial" parent="."]
 

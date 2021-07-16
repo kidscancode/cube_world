@@ -7,6 +7,8 @@ export var size = 2
 export var speed = 4.0
 export var fall_distance = 10.0
 export (Texture) var override_texture
+#export (String, FILE, "*.wav") var move_sound
+export (AudioStream) var move_sound
 
 onready var pivot = $Pivot
 onready var mesh = $Pivot/MeshInstance
@@ -39,6 +41,8 @@ func roll(dir):
 			1/speed, Tween.TRANS_QUAD, Tween.EASE_IN)
 	tween.start()
 	yield(tween, "tween_all_completed")
+	if move_sound:
+		AudioManager.play(move_sound)
 
 	## Finalize movement and reverse the offset
 	transform.origin += dir * 2

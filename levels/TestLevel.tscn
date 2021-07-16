@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://levels/gridmeshes_01.tres" type="MeshLibrary" id=1]
 [ext_resource path="res://cube/CubePlayer.tscn" type="PackedScene" id=2]
@@ -11,12 +11,13 @@
 [ext_resource path="res://items/Trigger.tscn" type="PackedScene" id=9]
 [ext_resource path="res://ui/Message.tscn" type="PackedScene" id=10]
 [ext_resource path="res://assets/fonts/Rubik-ExtraBold.ttf" type="DynamicFontData" id=11]
+[ext_resource path="res://assets/music/Mellow-Puzzler.mp3" type="AudioStream" id=12]
 
 [sub_resource type="DynamicFont" id=1]
 size = 64
 font_data = ExtResource( 11 )
 
-[sub_resource type="ViewportTexture" id=5]
+[sub_resource type="ViewportTexture" id=2]
 viewport_path = NodePath("Note/Viewport")
 
 [sub_resource type="SpatialMaterial" id=3]
@@ -25,7 +26,7 @@ flags_transparent = true
 flags_unshaded = true
 flags_no_depth_test = true
 flags_albedo_tex_force_srgb = true
-albedo_texture = SubResource( 5 )
+albedo_texture = SubResource( 2 )
 
 [sub_resource type="QuadMesh" id=4]
 resource_local_to_scene = true
@@ -34,6 +35,7 @@ size = Vector2( 30, 20 )
 
 [node name="TestLevel" type="Spatial"]
 script = ExtResource( 7 )
+music = ExtResource( 12 )
 
 [node name="CubePlayer" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 1, 7 )
