@@ -4,6 +4,8 @@ export (NodePath) var camera_path
 onready var camera = get_node(camera_path)
 var mat = preload("res://effects/cube_green_01_dissolve.tres")
 var mesh_material
+export (AudioStream) var appear_sound
+export (AudioStream) var disappear_sound
 
 func _ready():
 	mesh = $Pivot/cube_test_green_04
@@ -37,11 +39,15 @@ func appear():
 	tween.interpolate_property(mesh_material, "shader_param/offset",
 		1, 0, .8, Tween.TRANS_LINEAR, Tween.EASE_OUT)
 	tween.start()
+	if appear_sound:
+		AudioManager.play(appear_sound, 10)
 	
 func disappear():
 	tween.interpolate_property(mesh_material, "shader_param/offset",
 		0, 1, .8, Tween.TRANS_LINEAR, Tween.EASE_OUT)
 	tween.start()
+	if disappear_sound:
+		AudioManager.play(disappear_sound, 10)
 
 func teleport(pos):
 	disappear()

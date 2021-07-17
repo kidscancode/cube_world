@@ -1,7 +1,6 @@
 extends StaticBody
 
 export var pushable = false
-#export (String, FILE, "*.wav") var slide_sound
 export (AudioStream) var slide_sound
 
 onready var tween = $Tween

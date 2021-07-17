@@ -15,9 +15,9 @@ _global_script_classes=[ {
 "path": "res://cube/CubeBase.gd"
 }, {
 "base": "Spatial",
-"class": "Level",
+"class": "LevelBase",
 "language": "GDScript",
-"path": "res://levels/TestLevel.gd"
+"path": "res://levels/LevelBase.gd"
 }, {
 "base": "Area",
 "class": "Trigger",
@@ -26,19 +26,20 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "CubeBase": "",
-"Level": "",
+"LevelBase": "",
 "Trigger": ""
 }
 
 [application]
 
 config/name="Cube World"
-run/main_scene="res://levels/TestLevel.tscn"
+run/main_scene="res://Main.tscn"
 config/icon="res://assets/prototype_textures/Orange/texture_13.png"
 
 [autoload]
 
 AudioManager="*res://audio_manager.gd"
+UI="*res://ui/UI.tscn"
 DebugOverlay="*res://debug/DebugOverlay.tscn"
 
 [display]
