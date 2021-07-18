@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "StaticBody",
+"class": "Block",
+"language": "GDScript",
+"path": "res://items/Block.gd"
+}, {
 "base": "Area",
 "class": "CubeBase",
 "language": "GDScript",
@@ -17,7 +22,7 @@ _global_script_classes=[ {
 "base": "Spatial",
 "class": "LevelBase",
 "language": "GDScript",
-"path": "res://levels/LevelBase.gd"
+"path": "res://levels/base/LevelBase.gd"
 }, {
 "base": "Area",
 "class": "Trigger",
@@ -25,6 +30,7 @@ _global_script_classes=[ {
 "path": "res://items/Trigger.gd"
 } ]
 _global_script_class_icons={
+"Block": "",
 "CubeBase": "",
 "LevelBase": "",
 "Trigger": ""

@@ -1,16 +1,45 @@
 extends StaticBody
+class_name Block
 
 export var pushable = false
 export (AudioStream) var slide_sound
+
+var falling = false
 
 onready var tween = $Tween
 
 
 func push(dir):
+	# can we move there?
+	var space = get_world().direct_space_state
+	var collision = space.intersect_ray(global_transform.origin,
+			global_transform.origin + dir * 2.5, [self],
+			2147483647, true, true)
+	if collision:
+		return false
+		
 	tween.interpolate_property(self, "transform:origin", null,
 			transform.origin + dir * 2, 0.25,
 			Tween.TRANS_SINE, Tween.EASE_IN)
 	tween.start()
 	if slide_sound:
 		AudioManager.play(slide_sound, -5)
+	return true
 
+
+func _on_Tween_tween_all_completed():
+	if falling:
+		queue_free()
+	var space = get_world().direct_space_state
+	var collision = space.intersect_ray(global_transform.origin,
+			global_transform.origin + Vector3.DOWN * 2, [self],
+			2147483647, true, true)
+	if !collision:
+		pushable = false
+		falling = true
+		tween.interpolate_property(self, "transform:origin", null,
+			transform.origin + Vector3.DOWN * 10, 1.5,
+			Tween.TRANS_EXPO, Tween.EASE_IN)
+		tween.start()
+		
+		

@@ -55,4 +55,3 @@ func teleport(pos):
 	global_transform.origin = pos
 	appear()
 	yield(tween, "tween_all_completed")
-

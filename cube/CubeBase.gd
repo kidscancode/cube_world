@@ -71,8 +71,7 @@ func check_collision(dir):
 			2147483647, true, true)
 	if collision:
 		if collision.collider.has_method("push") and collision.collider.pushable:
-			collision.collider.push(dir)
-			return false
+			return not collision.collider.push(dir)
 		return true
 	return false
 		
@@ -92,6 +91,8 @@ func fall():
 			mesh.global_transform.origin + Vector3.DOWN * fall_distance,
 			[self])
 	if !collision:
+		die()
+	elif collision["collider"] is Block and collision["collider"].falling:
 		die()
 	else:
 		# What's under us?

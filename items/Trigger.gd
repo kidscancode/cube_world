@@ -1,11 +1,11 @@
-#tool
+tool
 extends Area
 class_name Trigger
 
 signal level_completed
 
 enum types{GOAL, TELEPORTER, PRESSURE_PLATE}
-export (types) var type # setget update_type
+export (types) var type setget update_type
 
 export (NodePath) var target_path
 var target
@@ -17,10 +17,14 @@ var mats = [
 	preload("res://items/materials/door_plate.tres")
 ]
 
+func update_type(_type):
+	type = _type
+	$MeshInstance.material_override = mats[type]
+
 func _ready():
 	if target_path:
 		target = get_node(target_path)
-	$MeshInstance.material_override = mats[type]
+#	$MeshInstance.material_override = mats[type]
 	
 	
 func _on_Trigger_area_entered(area):
