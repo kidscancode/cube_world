@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://effects/Water2.tscn" type="PackedScene" id=1]
 [ext_resource path="res://levels/gridmeshes_01.tres" type="MeshLibrary" id=2]
 [ext_resource path="res://CameraGimbal.tscn" type="PackedScene" id=3]
 [ext_resource path="res://cube/CubePlayer.tscn" type="PackedScene" id=4]
 [ext_resource path="res://levels/LevelBase.gd" type="Script" id=5]
+[ext_resource path="res://assets/music/Mellow-Puzzler.mp3" type="AudioStream" id=6]
 
 [node name="LevelBase" type="Spatial"]
 script = ExtResource( 5 )
@@ -36,3 +37,4 @@ shadow_enabled = true
 shadow_color = Color( 0.6, 0.6, 0.6, 1 )
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )

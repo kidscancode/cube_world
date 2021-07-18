@@ -1,5 +1,7 @@
 extends CanvasLayer
 
+signal finished
+
 onready var tween = $Message/Tween
 onready var panel = $Message/Panel
 onready var label = $Message/Panel/Label
@@ -26,3 +28,4 @@ func show_message(text, time):
 	yield(tween, "tween_all_completed")
 	panel.hide()
 	label.text = ""
+	emit_signal("finished")

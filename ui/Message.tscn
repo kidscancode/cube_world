@@ -3,7 +3,7 @@
 [ext_resource path="res://assets/fonts/Rubik-Bold.ttf" type="DynamicFontData" id=1]
 
 [sub_resource type="StyleBoxFlat" id=1]
-bg_color = Color( 1, 1, 1, 0.117647 )
+bg_color = Color( 1, 1, 1, 0 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 84
@@ -31,7 +31,7 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="Panel"]
-margin_right = 1024.0
+margin_left = -1024.0
 margin_bottom = 105.0
 custom_fonts/font = SubResource( 2 )
 text = "Read this"
