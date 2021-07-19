@@ -23,14 +23,14 @@ func _physics_process(_delta):
 		var cam_axis = cam_forward.abs().max_axis()
 		forward[cam_axis] = sign(cam_forward[cam_axis])
 		
-	if Input.is_action_pressed("right"):
-		roll(forward.rotated(Vector3.UP, -PI/2))
-	if Input.is_action_pressed("left"):
-		roll(forward.rotated(Vector3.UP, PI/2))
 	if Input.is_action_pressed("up"):
 		roll(forward)
 	if Input.is_action_pressed("down"):
 		roll(-forward)
+	if Input.is_action_pressed("right"):
+		roll(forward.cross(Vector3.UP))
+	if Input.is_action_pressed("left"):
+		roll(-forward.cross(Vector3.UP))
 
 func after_roll():
 	fall()
