@@ -20,6 +20,7 @@ material = SubResource( 1 )
 [node name="CubePlayer" type="Area"]
 collision_layer = 3
 script = ExtResource( 1 )
+speed = 3.0
 move_sound = ExtResource( 4 )
 appear_sound = ExtResource( 5 )
 disappear_sound = ExtResource( 6 )

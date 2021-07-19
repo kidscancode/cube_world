@@ -2,6 +2,7 @@ extends Area
 class_name CubeBase
 
 signal roll_complete
+signal died
 
 export var size = 2
 export var speed = 4.0
@@ -59,16 +60,13 @@ func roll(dir):
 
 	emit_signal("roll_complete")
 
-#func _on_Tween_tween_step(_object, _key, _elapsed, _value):
-#	pass
-#	pivot.transform = pivot.transform.orthonormalized()
 
 func check_collision(dir):
 	# cast a ray before moving to check for obstacles
 	var space = get_world().direct_space_state
 	var collision = space.intersect_ray(mesh.global_transform.origin,
 			mesh.global_transform.origin + dir * 2.5, [self],
-			2147483647, true, true)
+			collision_mask, true, true)
 	if collision:
 		if collision.collider.has_method("push") and collision.collider.pushable:
 			return not collision.collider.push(dir)
@@ -111,5 +109,4 @@ func fall():
 #			ground.set_cell_item(c.x, c.y, c.z, 1)
 
 func die():
-	DebugOverlay.stats.clear_properties()
-	get_tree().reload_current_scene()
+	pass

@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/prototype_textures/Orange/texture_12.png" type="Texture" id=1]
 [ext_resource path="res://items/Door.gd" type="Script" id=2]
+[ext_resource path="res://assets/sounds/DM-CGS-05.wav" type="AudioStream" id=3]
 
 [sub_resource type="SpatialMaterial" id=1]
 albedo_texture = ExtResource( 1 )
@@ -16,6 +17,7 @@ extents = Vector3( 1, 1.5, 1 )
 
 [node name="Door" type="Spatial"]
 script = ExtResource( 2 )
+sound = ExtResource( 3 )
 
 [node name="Door" type="StaticBody" parent="."]
 

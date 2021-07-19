@@ -1,17 +1,15 @@
 extends Node
 
-var level = 4
+var level = 3
 var num_levels = 1
 var current_level = null
 
 onready var tween = $Tween
 
 func _ready():
-	# TODO: Get total number of levels
+	randomize()
 	get_levels()
 	change_level()
-#	current_level = $Level01
-#	level_ready()
 
 func get_levels():
 	var n = 0
@@ -28,13 +26,6 @@ func get_levels():
 	num_levels = n
 
 func change_level():
-	# 1. load new scene
-	# 2. play out transition
-	# 3. free old scene
-	# 4. instance and add new scene and wait for ready signal
-	# 5. play in transition
-	# 6. tell new scene to begin
-	
 	if current_level:
 		level += 1
 	if level > num_levels:
@@ -48,9 +39,13 @@ func change_level():
 	yield(UI.overlay, "finished")
 	add_child(current_level)
 
-
+func reset_level():
+	level -= 1
+	change_level()
+	
 func level_ready():
 	current_level.get_node("Goal").connect("level_completed", self, "change_level")
+	current_level.get_node("CubePlayer").connect("died", self, "reset_level")
 	UI.overlay.wipe_out()
 	yield(UI.overlay, "finished")
 	current_level.initialize()

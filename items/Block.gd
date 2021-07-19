@@ -20,7 +20,7 @@ func push(dir):
 		
 	tween.interpolate_property(self, "transform:origin", null,
 			transform.origin + dir * 2, 0.25,
-			Tween.TRANS_SINE, Tween.EASE_IN)
+			Tween.TRANS_QUAD, Tween.EASE_IN)
 	tween.start()
 	if slide_sound:
 		AudioManager.play(slide_sound, -5)
