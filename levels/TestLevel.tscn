@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://levels/gridmeshes_01.tres" type="MeshLibrary" id=1]
 [ext_resource path="res://cube/CubePlayer.tscn" type="PackedScene" id=2]
@@ -13,6 +13,14 @@
 [ext_resource path="res://effects/FloatingNote.tscn" type="PackedScene" id=11]
 [ext_resource path="res://assets/music/Mellow-Puzzler.mp3" type="AudioStream" id=12]
 [ext_resource path="res://cube/WanderingCube.tscn" type="PackedScene" id=13]
+[ext_resource path="res://effects/square_wipe.shader" type="Shader" id=14]
+
+[sub_resource type="ShaderMaterial" id=3]
+shader = ExtResource( 14 )
+shader_param/square = Vector2( 10, 6 )
+shader_param/direction = Vector2( -1, 0 )
+shader_param/smoothness = 5.0
+shader_param/progress = 1.0
 
 [sub_resource type="SpatialMaterial" id=1]
 flags_transparent = true
@@ -104,6 +112,15 @@ shadow_color = Color( 0.6, 0.6, 0.6, 1 )
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Message" parent="CanvasLayer" instance=ExtResource( 10 )]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+material = SubResource( 3 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="FloatingNote" parent="." instance=ExtResource( 11 )]
 note = "Floating text"
