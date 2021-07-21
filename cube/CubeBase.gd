@@ -11,10 +11,12 @@ export (Texture) var override_texture
 #export (String, FILE, "*.wav") var move_sound
 export (AudioStream) var move_sound
 
+var can_move = true
+var platform = null
+
 onready var pivot = $Pivot
 onready var mesh = $Pivot/MeshInstance
 onready var tween = $Tween
-var can_move = true
 
 func _ready():
 	pivot.set_disable_scale(true)
@@ -23,10 +25,17 @@ func _ready():
 	if override_texture:
 		mesh.mesh.material = mesh.mesh.material.duplicate()
 		mesh.mesh.material.albedo_texture = override_texture
-	
+
 func roll(dir):
 	if tween.is_active():
 		return
+	if platform:
+		if platform.stopped:
+			platform.release()
+			platform = null
+		else:
+			return
+
 	if check_collision(dir):
 		return
 	
@@ -51,6 +60,7 @@ func roll(dir):
 	pivot.transform = Transform.IDENTITY
 	mesh.transform.origin = Vector3(0, 1, 0)
 	mesh.global_transform.basis = b
+	transform.origin = transform.origin.round()
 	
 	# TODO: clean up.
 	# Wait for area_entered to fire so movement will stop on triggers
@@ -92,6 +102,9 @@ func fall():
 		die()
 	elif collision["collider"] is Block and collision["collider"].falling:
 		die()
+	elif collision["collider"].is_in_group("platforms"):
+		platform = collision["collider"].get_parent()
+		platform.grab(get_path())
 	else:
 		# What's under us?
 #		var ground = collision["collider"]

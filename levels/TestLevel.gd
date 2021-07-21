@@ -13,3 +13,8 @@ func _ready():
 	
 func _process(_delta):
 	fps = Engine.get_frames_per_second()
+
+
+func _on_CubePlayer_died():
+	DebugOverlay.stats.clear_properties()
+	get_tree().reload_current_scene()

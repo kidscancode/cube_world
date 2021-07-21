@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://levels/gridmeshes_01.tres" type="MeshLibrary" id=1]
 [ext_resource path="res://cube/CubePlayer.tscn" type="PackedScene" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://assets/music/Mellow-Puzzler.mp3" type="AudioStream" id=12]
 [ext_resource path="res://cube/WanderingCube.tscn" type="PackedScene" id=13]
 [ext_resource path="res://effects/square_wipe.shader" type="Shader" id=14]
+[ext_resource path="res://items/PlatformAnchor.tscn" type="PackedScene" id=15]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 14 )
@@ -137,3 +138,10 @@ material/0 = null
 
 [node name="WanderingCube" parent="." instance=ExtResource( 13 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, 7 )
+
+[node name="PlatformAnchor" parent="." instance=ExtResource( 15 )]
+transform = Transform( 4.33126e-07, 0, -1, 0, 1, 0, 1, 0, 4.33126e-07, 11, 0, 11 )
+movement = Vector3( 0, 0, -14 )
+cycle_time = 5.0
+
+[connection signal="died" from="CubePlayer" to="." method="_on_CubePlayer_died"]
