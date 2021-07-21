@@ -13,7 +13,7 @@ func open():
 			Tween.TRANS_LINEAR, Tween.EASE_OUT)
 	tween.start()
 	if sound:
-		AudioManager.play(sound)
+		AudioManager.play(sound, 4)
 	
 func close():
 	tween.interpolate_property(door, "transform:origin", null,
@@ -21,4 +21,4 @@ func close():
 			Tween.TRANS_LINEAR, Tween.EASE_OUT)
 	tween.start()
 	if sound:
-		AudioManager.play(sound)
+		AudioManager.play(sound, 4)

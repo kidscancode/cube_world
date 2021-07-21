@@ -17,6 +17,7 @@ var mats = [
 	preload("res://items/materials/door_plate.tres")
 ]
 
+	
 func update_type(_type):
 	type = _type
 	$MeshInstance.material_override = mats[type]

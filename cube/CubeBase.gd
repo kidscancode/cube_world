@@ -43,7 +43,7 @@ func roll(dir):
 	tween.start()
 	yield(tween, "tween_all_completed")
 	if move_sound:
-		AudioManager.play(move_sound)
+		AudioManager.play(move_sound, 8)
 
 	## Finalize movement and reverse the offset
 	transform.origin += dir * 2

@@ -23,7 +23,7 @@ func push(dir):
 			Tween.TRANS_QUAD, Tween.EASE_IN)
 	tween.start()
 	if slide_sound:
-		AudioManager.play(slide_sound, -5)
+		AudioManager.play(slide_sound, 1)
 	return true
 
 
