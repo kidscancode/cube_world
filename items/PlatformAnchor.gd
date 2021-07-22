@@ -2,11 +2,13 @@ extends Spatial
 
 export (Vector3) var movement = Vector3(0, 0, -6)
 export var cycle_time = 4.0
+export var wait_time = 1.0
 
 var dir = 1
 var stopped = false
 
 onready var tween = $Tween
+onready var timer = $Timer
 onready var body = $StaticBody
 onready var rtrans = $StaticBody/RemoteTransform
 
@@ -32,7 +34,9 @@ func release():
 
 func _on_Tween_tween_all_completed():
 	stopped = true
+	timer.start(wait_time)
+
+func _on_Timer_timeout():
 	dir = -dir
-	yield(get_tree().create_timer(1), "timeout")
 	stopped = false
 	move()
