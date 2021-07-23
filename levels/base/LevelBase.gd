@@ -15,5 +15,5 @@ func initialize():
 
 func cleanup():
 	$CubePlayer.set_physics_process(false)
-	yield(get_tree().create_timer(0.3), "timeout")
+	yield(get_tree().create_timer(0.2), "timeout")
 	queue_free()

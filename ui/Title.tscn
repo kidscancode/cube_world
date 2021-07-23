@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://assets/ui/HyperCasual Game UI/rect2.png" type="Texture" id=1]
 [ext_resource path="res://assets/fonts/Rubik-ExtraBold.ttf" type="DynamicFontData" id=2]
@@ -7,23 +7,27 @@
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.6, 0.6, 0.6, 0 )
 
-[sub_resource type="StyleBoxEmpty" id=5]
+[sub_resource type="StyleBoxEmpty" id=2]
 
-[sub_resource type="StyleBoxEmpty" id=6]
+[sub_resource type="StyleBoxEmpty" id=3]
 
-[sub_resource type="StyleBoxFlat" id=2]
+[sub_resource type="StyleBoxEmpty" id=8]
+
+[sub_resource type="StyleBoxFlat" id=4]
 bg_color = Color( 0.6, 0.6, 0.6, 0 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=5]
 size = 96
 use_mipmaps = true
 use_filter = true
 font_data = ExtResource( 2 )
 
-[sub_resource type="StyleBoxFlat" id=4]
+[sub_resource type="StyleBoxFlat" id=6]
 bg_color = Color( 0.6, 0.6, 0.6, 0 )
 
 [sub_resource type="StyleBoxEmpty" id=7]
+
+[sub_resource type="StyleBoxEmpty" id=9]
 
 [node name="Title" type="MarginContainer"]
 anchor_right = 1.0
@@ -67,11 +71,12 @@ __meta__ = {
 margin_right = 984.0
 margin_bottom = 114.0
 custom_styles/hover = SubResource( 1 )
-custom_styles/pressed = SubResource( 5 )
-custom_styles/focus = SubResource( 6 )
-custom_styles/normal = SubResource( 2 )
-custom_fonts/font = SubResource( 3 )
-custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/focus = SubResource( 3 )
+custom_styles/disabled = SubResource( 8 )
+custom_styles/normal = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color_disabled = Color( 0.0862745, 0.619608, 0.411765, 1 )
 custom_colors/font_color = Color( 0.0862745, 0.619608, 0.411765, 1 )
 custom_colors/font_color_hover = Color( 0.0901961, 0.384314, 0.27451, 1 )
 custom_colors/font_color_pressed = Color( 0.0862745, 0.619608, 0.411765, 1 )
@@ -83,14 +88,18 @@ text = "Play"
 margin_top = 118.0
 margin_right = 984.0
 margin_bottom = 232.0
-custom_styles/hover = SubResource( 4 )
+custom_styles/hover = SubResource( 6 )
 custom_styles/pressed = SubResource( 1 )
 custom_styles/focus = SubResource( 7 )
-custom_styles/normal = SubResource( 2 )
-custom_fonts/font = SubResource( 3 )
+custom_styles/disabled = SubResource( 9 )
+custom_styles/normal = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color_disabled = Color( 0.0862745, 0.619608, 0.411765, 1 )
 custom_colors/font_color = Color( 0.0862745, 0.619608, 0.411765, 1 )
 custom_colors/font_color_hover = Color( 0.0901961, 0.384314, 0.27451, 1 )
 custom_colors/font_color_pressed = Color( 0.0862745, 0.619608, 0.411765, 1 )
 text = "Settings"
 
 [node name="Tween" type="Tween" parent="."]
+
+[connection signal="tween_all_completed" from="Tween" to="." method="_on_Tween_tween_all_completed"]
