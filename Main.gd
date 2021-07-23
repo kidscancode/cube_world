@@ -1,15 +1,29 @@
 extends Node
 
-var level = 1
+var level = 6
 var num_levels = 1
 var current_level = null
 
 onready var tween = $Tween
 
 func _ready():
+	UI.game_scene = self
 	randomize()
 	get_levels()
+	UI.overlay.wipe_in()
+	yield(UI.overlay, "finished")
+	UI.go_to_title()
+#	start_game()
+	
+func start_game():
 	change_level()
+
+func end_game():
+	if current_level:
+		current_level.cleanup()
+	UI.overlay.wipe_in()
+	yield(UI.overlay, "finished")
+	UI.go_to_title()
 
 func get_levels():
 	var n = 0
@@ -29,6 +43,7 @@ func change_level():
 	if current_level:
 		level += 1
 	if level > num_levels:
+		end_game()
 		return
 	UI.overlay.wipe_in()
 	var next_level = load("res://levels/Level%02d.tscn" % level)

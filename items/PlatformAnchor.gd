@@ -34,6 +34,7 @@ func release():
 
 func _on_Tween_tween_all_completed():
 	stopped = true
+#	get_tree().create_timer(wait_time).connect("timeout", self, "_on_Timer_timeout")
 	timer.start(wait_time)
 
 func _on_Timer_timeout():

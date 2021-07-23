@@ -1,0 +1,96 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://assets/ui/HyperCasual Game UI/rect2.png" type="Texture" id=1]
+[ext_resource path="res://assets/fonts/Rubik-ExtraBold.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://ui/Title.gd" type="Script" id=3]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="StyleBoxEmpty" id=5]
+
+[sub_resource type="StyleBoxEmpty" id=6]
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 96
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="StyleBoxEmpty" id=7]
+
+[node name="Title" type="MarginContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1024.0
+margin_right = 1024.0
+custom_constants/margin_right = 20
+custom_constants/margin_top = 20
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 20
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 1004.0
+margin_bottom = 580.0
+custom_constants/separation = 50
+
+[node name="Logo" type="TextureRect" parent="VBoxContainer"]
+self_modulate = Color( 0.0862745, 0.619608, 0.411765, 1 )
+margin_right = 984.0
+margin_bottom = 166.0
+texture = ExtResource( 1 )
+stretch_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer"]
+margin_top = 216.0
+margin_right = 984.0
+margin_bottom = 448.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayButton" type="Button" parent="VBoxContainer/VBoxContainer" groups=[
+"menu_buttons",
+]]
+margin_right = 984.0
+margin_bottom = 114.0
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 5 )
+custom_styles/focus = SubResource( 6 )
+custom_styles/normal = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0.0862745, 0.619608, 0.411765, 1 )
+custom_colors/font_color_hover = Color( 0.0901961, 0.384314, 0.27451, 1 )
+custom_colors/font_color_pressed = Color( 0.0862745, 0.619608, 0.411765, 1 )
+text = "Play"
+
+[node name="SettingsButton" type="Button" parent="VBoxContainer/VBoxContainer" groups=[
+"menu_buttons",
+]]
+margin_top = 118.0
+margin_right = 984.0
+margin_bottom = 232.0
+custom_styles/hover = SubResource( 4 )
+custom_styles/pressed = SubResource( 1 )
+custom_styles/focus = SubResource( 7 )
+custom_styles/normal = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.0862745, 0.619608, 0.411765, 1 )
+custom_colors/font_color_hover = Color( 0.0901961, 0.384314, 0.27451, 1 )
+custom_colors/font_color_pressed = Color( 0.0862745, 0.619608, 0.411765, 1 )
+text = "Settings"
+
+[node name="Tween" type="Tween" parent="."]
