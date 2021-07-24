@@ -7,7 +7,7 @@ var game_scene = null
 
 func _ready():
 	register_buttons()
-	go_to_title()
+#	go_to_title()
 
 	
 func register_buttons():
@@ -18,8 +18,10 @@ func register_buttons():
 func _on_button_pressed(button):
 	match button.name:
 		"PlayButton":
+#			yield($MenuLayer/Title, "menu_ready")
+			UI.overlay.wipe_in()
+			yield(UI.overlay, "finished")
 			$MenuLayer/Title.end()
-			yield($MenuLayer/Title, "menu_ready")
 			game_scene.start_game()
 		"SettingsButton":
 			pass
