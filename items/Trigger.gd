@@ -21,6 +21,10 @@ var mats = [
 func update_type(_type):
 	type = _type
 	$MeshInstance.material_override = mats[type]
+	if type == types.GOAL:
+		$cube_test_green_04.show()
+	else:
+		$cube_test_green_04.hide()
 
 func _ready():
 	if target_path:

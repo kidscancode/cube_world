@@ -17,7 +17,6 @@ viewport_path = NodePath("Viewport")
 resource_local_to_scene = true
 flags_transparent = true
 flags_unshaded = true
-flags_no_depth_test = true
 flags_albedo_tex_force_srgb = true
 flags_do_not_receive_shadows = true
 albedo_texture = SubResource( 2 )
@@ -30,6 +29,8 @@ size = Vector2( 30, 20 )
 [node name="FloatingNote" type="Spatial"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, -22 )
 script = ExtResource( 2 )
+note = "Test
+"
 
 [node name="Viewport" type="Viewport" parent="."]
 size = Vector2( 1024, 600 )
@@ -44,7 +45,8 @@ gui_disable_input = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_fonts/font = SubResource( 1 )
-text = "Test"
+text = "Test
+"
 align = 1
 valign = 1
 
