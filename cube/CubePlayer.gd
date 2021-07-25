@@ -58,4 +58,9 @@ func teleport(pos):
 
 func die():
 	DebugOverlay.stats.clear_properties()
+	var t = pow(2 * 9 / 15, 0.5)
+	tween.interpolate_property(self, "transform:origin", null,
+			transform.origin + Vector3.DOWN * 9, t, Tween.TRANS_EXPO, Tween.EASE_IN)
+	tween.start()
+	yield(tween, "tween_all_completed")
 	emit_signal("died")

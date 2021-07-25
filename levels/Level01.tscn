@@ -17,7 +17,7 @@ data = {
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 1, 0 )
 
 [node name="CubePlayer" parent="." index="3"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 2, -1 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 2.1, -1 )
 
 [node name="Goal" parent="." index="5" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 2, -1 )

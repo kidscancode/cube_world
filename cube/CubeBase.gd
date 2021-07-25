@@ -60,7 +60,7 @@ func roll(dir):
 	pivot.transform = Transform.IDENTITY
 	mesh.transform.origin = Vector3(0, 1, 0)
 	mesh.global_transform.basis = b
-	transform.origin = transform.origin.round()
+#	transform.origin = transform.origin.round()
 	
 	# TODO: clean up.
 	# Wait for area_entered to fire so movement will stop on triggers

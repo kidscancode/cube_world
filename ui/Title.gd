@@ -4,7 +4,9 @@ signal menu_ready
 
 onready var tween = $Tween
 
-	
+func _ready():
+	hide()
+
 func start():
 	visible = true
 #	rect_position.x = 0

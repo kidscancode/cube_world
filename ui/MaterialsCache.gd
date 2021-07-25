@@ -6,7 +6,8 @@ extends Spatial
 var mats = [
 	preload("res://items/materials/goal.tres"),
 	preload("res://items/materials/teleporter.tres"),
-	preload("res://items/materials/door_plate.tres")
+	preload("res://items/materials/door_plate.tres"),
+	preload("res://effects/fade_pulse.tres")
 ]
 
 func _ready():
@@ -15,4 +16,3 @@ func _ready():
 		mesh.mesh = QuadMesh.new()
 		mesh.material_override = mat
 		add_child(mesh)
-		
