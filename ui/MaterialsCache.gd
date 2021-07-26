@@ -7,7 +7,8 @@ var mats = [
 	preload("res://items/materials/goal.tres"),
 	preload("res://items/materials/teleporter.tres"),
 	preload("res://items/materials/door_plate.tres"),
-	preload("res://effects/fade_pulse.tres")
+	preload("res://effects/fade_pulse.tres"),
+	preload("res://effects/arrow_bounce.tres")
 ]
 
 func _ready():

@@ -74,9 +74,6 @@ transform = Transform( 0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 5
 target_path = NodePath("../CubePlayer")
 distance = 5.0
 
-[node name="Spikes" parent="." instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 1, -5 )
-
 [node name="Goal" parent="." instance=ExtResource( 9 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, -1 )
 
@@ -143,5 +140,8 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, 7 )
 transform = Transform( 4.33126e-07, 0, -1, 0, 1, 0, 1, 0, 4.33126e-07, 11, 0, 11 )
 movement = Vector3( 0, 0, -14 )
 cycle_time = 5.0
+
+[node name="Spikes" parent="." instance=ExtResource( 8 )]
+transform = Transform( 0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 15, 1, -5 )
 
 [connection signal="died" from="CubePlayer" to="." method="_on_CubePlayer_died"]
