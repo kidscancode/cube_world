@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://items/materials/block.tres" type="Material" id=1]
 [ext_resource path="res://items/Block.gd" type="Script" id=2]
 [ext_resource path="res://assets/sounds/Slide_Soft_00.wav" type="AudioStream" id=3]
+[ext_resource path="res://items/materials/block_red.tres" type="Material" id=4]
 
 [sub_resource type="CubeMesh" id=1]
 material = ExtResource( 1 )
@@ -15,6 +16,7 @@ script = ExtResource( 2 )
 slide_sound = ExtResource( 3 )
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
+material_override = ExtResource( 4 )
 mesh = SubResource( 1 )
 material/0 = null
 

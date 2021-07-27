@@ -1,13 +1,20 @@
+tool
 extends StaticBody
 class_name Block
 
-export var pushable = false
+export var pushable = false setget set_pushable
 export (AudioStream) var slide_sound
 
 var falling = false
 
 onready var tween = $Tween
 
+func set_pushable(value):
+	pushable = value
+	if pushable:
+		$MeshInstance.material_override = load("res://items/materials/block_purple.tres")
+	else:
+		$MeshInstance.material_override = load("res://items/materials/block_red.tres")
 
 func push(dir):
 	# can we move there?
