@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://effects/LaserBeam.gd" type="Script" id=1]
+[ext_resource path="res://assets/sounds/magnet_on.wav" type="AudioStream" id=2]
 
 [sub_resource type="SpatialMaterial" id=1]
 flags_do_not_receive_shadows = true
@@ -27,6 +28,8 @@ height = 8.0
 collision_layer = 4
 collision_mask = 2
 script = ExtResource( 1 )
+on_sound = ExtResource( 2 )
+off_sound = ExtResource( 2 )
 
 [node name="LaserBeam" type="MeshInstance" parent="."]
 transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 4, 1.74846e-07, 0 )

@@ -29,7 +29,7 @@ shader_param/progress = 1.0
 script = ExtResource( 7 )
 
 [node name="CubePlayer" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1, 9 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1, 11 )
 camera_path = NodePath("../CameraGimbal")
 
 [node name="GridMap" type="GridMap" parent="."]
@@ -121,7 +121,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, 7 )
 
 [node name="PlatformAnchor" parent="." instance=ExtResource( 15 )]
 transform = Transform( 4.33126e-07, 0, -1, 0, 1, 0, 1, 0, 4.33126e-07, 11, 0, 11 )
-movement = Vector3( 0, 0, -14 )
+movement = Vector3( 8, 8, -14 )
 cycle_time = 5.0
 
 [node name="Spikes" parent="." instance=ExtResource( 8 )]

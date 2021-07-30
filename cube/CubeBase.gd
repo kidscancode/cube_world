@@ -107,7 +107,6 @@ func fall():
 		platform.grab(get_path())
 	else:
 		# What's under us?
-#		var ground = collision["collider"]
 		var pos = collision["position"]
 		var dist = transform.origin.distance_to(pos)
 		if dist > 1:
@@ -117,6 +116,7 @@ func fall():
 					pos, t, Tween.TRANS_EXPO, Tween.EASE_IN)
 			tween.start()
 			yield(tween, "tween_all_completed")
+#		var ground = collision["collider"]
 #		if ground.name == "GridMap":
 #			var c = ground.world_to_map(transform.origin + Vector3.DOWN)
 #			ground.set_cell_item(c.x, c.y, c.z, 1)

@@ -1,15 +1,36 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://items/PlatformAnchor.gd" type="Script" id=1]
+[ext_resource path="res://assets/prototype_textures/Light/texture_11.png" type="Texture" id=2]
+
+[sub_resource type="SpatialMaterial" id=4]
+flags_transparent = true
+albedo_color = Color( 1, 0.996078, 0.996078, 0.580392 )
+albedo_texture = ExtResource( 2 )
+uv1_scale = Vector3( 3, 2, 1 )
+
+[sub_resource type="CubeMesh" id=5]
+material = SubResource( 4 )
+size = Vector3( 2, 1, 2 )
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 1, 0.5, 1 )
 
-[sub_resource type="CubeMesh" id=2]
+[sub_resource type="SpatialMaterial" id=6]
+albedo_texture = ExtResource( 2 )
+uv1_scale = Vector3( 3, 2, 1 )
+
+[sub_resource type="CubeMesh" id=3]
+material = SubResource( 6 )
 size = Vector3( 2, 1, 2 )
 
 [node name="PlatformAnchor" type="Spatial"]
 script = ExtResource( 1 )
+
+[node name="EndPoint" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -6 )
+mesh = SubResource( 5 )
+material/0 = null
 
 [node name="StaticBody" type="StaticBody" parent="." groups=[
 "platforms",
@@ -21,7 +42,7 @@ shape = SubResource( 1 )
 
 [node name="MeshInstance" type="MeshInstance" parent="StaticBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0 )
-mesh = SubResource( 2 )
+mesh = SubResource( 3 )
 material/0 = null
 
 [node name="RemoteTransform" type="RemoteTransform" parent="StaticBody"]

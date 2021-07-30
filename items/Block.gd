@@ -44,6 +44,7 @@ func _on_Tween_tween_all_completed():
 	if !collision:
 		pushable = false
 		falling = true
+#		$CollisionShape.set_deferred("disabled", true)
 		tween.interpolate_property(self, "transform:origin", null,
 			transform.origin + Vector3.DOWN * 10, 1.5,
 			Tween.TRANS_EXPO, Tween.EASE_IN)

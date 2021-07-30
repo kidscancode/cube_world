@@ -1,6 +1,7 @@
+tool
 extends Spatial
 
-export (Vector3) var movement = Vector3(0, 0, -6)
+export (Vector3) var movement = Vector3(0, 0, -6) setget set_movement
 export var cycle_time = 4.0
 export var wait_time = 1.0
 
@@ -12,8 +13,16 @@ onready var timer = $Timer
 onready var body = $StaticBody
 onready var rtrans = $StaticBody/RemoteTransform
 
+func set_movement(value):
+	movement = value
+	if Engine.is_editor_hint():
+		$EndPoint.show()
+		$EndPoint.transform.origin = movement + Vector3(0, 0.5, 0)
+	
 func _ready():
-	move()
+	if not Engine.is_editor_hint():
+		$EndPoint.hide()
+		move()
 	
 func move():
 	if dir == 1:

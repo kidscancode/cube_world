@@ -1,11 +1,13 @@
 extends CubeBase
 
 export (NodePath) var camera_path
-onready var camera = get_node(camera_path)
-var mat = preload("res://effects/cube_green_01_dissolve.tres")
-var mesh_material
 export (AudioStream) var appear_sound
 export (AudioStream) var disappear_sound
+
+var mat = preload("res://effects/cube_green_01_dissolve.tres")
+var mesh_material
+
+onready var camera = get_node(camera_path)
 
 func _ready():
 	mesh = $Pivot/cube_test_green_04

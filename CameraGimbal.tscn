@@ -9,8 +9,8 @@ size = Vector2( 2, 2 )
 
 [sub_resource type="ShaderMaterial" id=2]
 shader = ExtResource( 3 )
-shader_param/color_outline_scale = 1.0
-shader_param/depth_outline_scale = 1.0
+shader_param/color_outline_scale = 4.0
+shader_param/depth_outline_scale = 2.0
 shader_param/depth_threshold = 2.5
 shader_param/depth_multiplier = 1000.0
 shader_param/edge_threshold = 0.04

@@ -1,0 +1,69 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://assets/fonts/OtomanopeeOne-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://assets/ui/HyperCasual Game UI/lockIcon2.png" type="Texture" id=2]
+[ext_resource path="res://ui/LevelSquare.gd" type="Script" id=3]
+[ext_resource path="res://effects/2d_outline.shader" type="Shader" id=4]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.0862745, 0.619608, 0.411765, 1 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0.0901961, 0.384314, 0.27451, 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 66
+outline_size = 6
+outline_color = Color( 0.0901961, 0.384314, 0.27451, 1 )
+use_mipmaps = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="ShaderMaterial" id=4]
+shader = ExtResource( 4 )
+shader_param/line_color = Color( 0.0901961, 0.384314, 0.27451, 1 )
+shader_param/line_thickness = 15.0
+
+[node name="LevelSquare" type="PanelContainer"]
+margin_right = 110.0
+margin_bottom = 110.0
+rect_min_size = Vector2( 110, 110 )
+custom_styles/panel = SubResource( 1 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+visible = false
+margin_left = 5.0
+margin_top = 6.0
+margin_right = 105.0
+margin_bottom = 103.0
+custom_fonts/font = SubResource( 2 )
+text = "1"
+align = 1
+valign = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 105.0
+margin_bottom = 105.0
+custom_constants/margin_right = 10
+custom_constants/margin_top = 10
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 10
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer"]
+material = SubResource( 4 )
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 90.0
+margin_bottom = 90.0
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 6
+
+[connection signal="gui_input" from="." to="." method="_on_LevelSquare_gui_input"]

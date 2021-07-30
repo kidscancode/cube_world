@@ -1,6 +1,6 @@
 extends Node
 
-var level = 1
+var level = 7
 var num_levels = 1
 var current_level = null
 
@@ -32,6 +32,7 @@ func end_game():
 		$Music.stop()
 		$Music.stream = null
 	UI.go_to_title()
+	UI.overlay.wipe_out()
 
 func get_levels():
 	var n = 0
