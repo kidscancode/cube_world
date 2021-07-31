@@ -1,6 +1,6 @@
 extends Node
 
-var level = 7
+var level = 1
 var num_levels = 1
 var current_level = null
 
@@ -11,10 +11,11 @@ onready var tween = $Tween
 func _ready():
 	UI.game_scene = self
 	randomize()
-	get_levels()
+#	get_levels()
 	UI.go_to_title()
 	
-func start_game():
+func start_game(n):
+	level = n
 	change_level(true)
 
 func end_game():
@@ -34,24 +35,24 @@ func end_game():
 	UI.go_to_title()
 	UI.overlay.wipe_out()
 
-func get_levels():
-	var n = 0
-	var d = Directory.new()
-	if d.open("res://levels") == OK:
-		print("scanning for levels...")
-		d.list_dir_begin(true, true)
-		var file_name = d.get_next()
-		while file_name != "":
-			if file_name.begins_with("Level") and filename.get_extension() == "tscn":
-				n += 1
-			file_name = d.get_next()
-	print(n, " levels found")
-	num_levels = n
+#func get_levels():
+#	var n = 0
+#	var d = Directory.new()
+#	if d.open("res://levels") == OK:
+#		print("scanning for levels...")
+#		d.list_dir_begin(true, true)
+#		var file_name = d.get_next()
+#		while file_name != "":
+#			if file_name.begins_with("Level") and filename.get_extension() == "tscn":
+#				n += 1
+#			file_name = d.get_next()
+#	print(n, " levels found")
+#	num_levels = n
 
 func change_level(start=false):
 	if current_level:
 		level += 1
-	if level > num_levels:
+	if level > UI.num_levels:
 		end_game()
 		return
 	var next_level

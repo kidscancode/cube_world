@@ -308,13 +308,12 @@ custom_constants/hseparation = 10
 columns = 6
 
 [node name="LevelSquare" parent="VBoxContainer/HBoxContainer/ClipControl/GridBox/GridContainer3" instance=ExtResource( 2 )]
-locked = false
 level_num = 37
 
 [node name="LevelSquare2" parent="VBoxContainer/HBoxContainer/ClipControl/GridBox/GridContainer3" instance=ExtResource( 2 )]
 margin_left = 120.0
 margin_right = 230.0
-level_num = 20
+level_num = 38
 
 [node name="LevelSquare3" parent="VBoxContainer/HBoxContainer/ClipControl/GridBox/GridContainer3" instance=ExtResource( 2 )]
 margin_left = 240.0
