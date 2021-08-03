@@ -40,7 +40,7 @@ _global_script_class_icons={
 
 config/name="Cube World"
 run/main_scene="res://Main.tscn"
-config/icon="res://assets/prototype_textures/Orange/texture_13.png"
+config/icon="res://assets/green_inset_01.png"
 
 [autoload]
 

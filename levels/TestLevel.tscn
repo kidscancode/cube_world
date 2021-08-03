@@ -29,7 +29,7 @@ shader_param/progress = 1.0
 script = ExtResource( 7 )
 
 [node name="CubePlayer" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1, 11 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 1, 11 )
 camera_path = NodePath("../CameraGimbal")
 
 [node name="GridMap" type="GridMap" parent="."]
@@ -91,6 +91,12 @@ light_energy = 2.0
 shadow_enabled = true
 shadow_color = Color( 0.6, 0.6, 0.6, 1 )
 
+[node name="DirectionalLight2" type="DirectionalLight" parent="."]
+transform = Transform( 0.834425, -0.551122, 7.23754e-09, 0.551122, 0.834425, -2.40903e-08, 7.23751e-09, 2.40903e-08, 1, -2, 11, 26 )
+visible = false
+light_energy = 0.1
+shadow_color = Color( 0.6, 0.6, 0.6, 1 )
+
 [node name="Water2" parent="." instance=ExtResource( 6 )]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -107,6 +113,7 @@ __meta__ = {
 }
 
 [node name="FloatingNote" parent="." instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 5, -25 )
 note = "Floating  text"
 
 [node name="Music" type="AudioStreamPlayer" parent="."]

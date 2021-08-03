@@ -2,20 +2,10 @@
 
 [ext_resource path="res://effects/LaserBeam.gd" type="Script" id=1]
 [ext_resource path="res://assets/sounds/magnet_on.wav" type="AudioStream" id=2]
-
-[sub_resource type="SpatialMaterial" id=1]
-flags_do_not_receive_shadows = true
-params_specular_mode = 4
-albedo_color = Color( 2, 0, 0, 0.917647 )
-roughness = 0.0
-emission_enabled = true
-emission = Color( 1, 0, 0, 1 )
-emission_energy = 4.21
-emission_operator = 0
-emission_on_uv2 = false
+[ext_resource path="res://effects/LaserBeam.tres" type="Material" id=3]
 
 [sub_resource type="CylinderMesh" id=2]
-material = SubResource( 1 )
+material = ExtResource( 3 )
 top_radius = 0.2
 bottom_radius = 0.2
 height = 8.0

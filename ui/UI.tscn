@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://ui/Message.tscn" type="PackedScene" id=1]
 [ext_resource path="res://ui/UI.gd" type="Script" id=2]
@@ -6,9 +6,11 @@
 [ext_resource path="res://ui/MessageLayer.gd" type="Script" id=4]
 [ext_resource path="res://ui/Title.tscn" type="PackedScene" id=5]
 [ext_resource path="res://ui/LevelSelect.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/music/Puzzle-Game-5_Looping.mp3" type="AudioStream" id=7]
 
 [node name="UI" type="Node"]
 script = ExtResource( 2 )
+music = ExtResource( 7 )
 
 [node name="MessageLayer" type="CanvasLayer" parent="."]
 script = ExtResource( 4 )
@@ -20,6 +22,5 @@ script = ExtResource( 4 )
 [node name="Title" parent="MenuLayer" instance=ExtResource( 5 )]
 
 [node name="LevelSelect" parent="MenuLayer" instance=ExtResource( 6 )]
-visible = false
 
 [node name="OverlayLayer" parent="." instance=ExtResource( 3 )]

@@ -11,8 +11,8 @@ onready var tween = $Tween
 func _ready():
 	UI.game_scene = self
 	randomize()
-#	get_levels()
 	UI.go_to_title()
+	play_music(UI.music)
 	
 func start_game(n):
 	level = n
@@ -35,19 +35,10 @@ func end_game():
 	UI.go_to_title()
 	UI.overlay.wipe_out()
 
-#func get_levels():
-#	var n = 0
-#	var d = Directory.new()
-#	if d.open("res://levels") == OK:
-#		print("scanning for levels...")
-#		d.list_dir_begin(true, true)
-#		var file_name = d.get_next()
-#		while file_name != "":
-#			if file_name.begins_with("Level") and filename.get_extension() == "tscn":
-#				n += 1
-#			file_name = d.get_next()
-#	print(n, " levels found")
-#	num_levels = n
+
+func _unhandled_input(event):
+	if current_level and event.is_action_pressed("ui_cancel"):
+		end_game()
 
 func change_level(start=false):
 	if current_level:
@@ -90,3 +81,4 @@ func play_music(song):
 	$Music.stream = song
 	$Music.volume_db = 0
 	$Music.play()
+

@@ -41,6 +41,7 @@ func appear():
 	tween.interpolate_property(mesh_material, "shader_param/offset",
 		1, 0, .8, Tween.TRANS_LINEAR, Tween.EASE_OUT)
 	tween.start()
+#	mesh_material.next_pass.set_shader_param("enable", false)
 	if appear_sound:
 		AudioManager.play(appear_sound, 10)
 	
@@ -48,6 +49,7 @@ func disappear():
 	tween.interpolate_property(mesh_material, "shader_param/offset",
 		0, 1, .8, Tween.TRANS_LINEAR, Tween.EASE_OUT)
 	tween.start()
+#	mesh_material.next_pass.set_shader_param("enable", true)
 	if disappear_sound:
 		AudioManager.play(disappear_sound, 10)
 
@@ -60,7 +62,7 @@ func teleport(pos):
 
 func die():
 	DebugOverlay.stats.clear_properties()
-	var t = pow(2 * 15 / 15, 0.5)
+	var t = 1.4#pow(2 * 15 / 15, 0.5)
 	tween.interpolate_property(self, "transform:origin", null,
 			transform.origin + Vector3.DOWN * 15, t, Tween.TRANS_EXPO, Tween.EASE_IN)
 	tween.start()

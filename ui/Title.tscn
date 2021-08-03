@@ -4,7 +4,7 @@
 [ext_resource path="res://assets/ui/ss1.png" type="Texture" id=2]
 [ext_resource path="res://ui/Title.gd" type="Script" id=3]
 
-[sub_resource type="DynamicFont" id=11]
+[sub_resource type="DynamicFont" id=1]
 size = 140
 outline_size = 12
 outline_color = Color( 1, 1, 1, 0.168627 )
@@ -23,7 +23,7 @@ bg_color = Color( 0.6, 0.6, 0.6, 0 )
 [sub_resource type="StyleBoxFlat" id=6]
 bg_color = Color( 0.6, 0.6, 0.6, 0 )
 
-[sub_resource type="DynamicFont" id=12]
+[sub_resource type="DynamicFont" id=7]
 size = 72
 outline_size = 6
 outline_color = Color( 0.0901961, 0.384314, 0.27451, 1 )
@@ -72,7 +72,7 @@ alignment = 1
 margin_top = 23.0
 margin_right = 984.0
 margin_bottom = 247.0
-custom_fonts/font = SubResource( 11 )
+custom_fonts/font = SubResource( 1 )
 text = "Cube World"
 align = 1
 valign = 1
@@ -95,7 +95,7 @@ custom_styles/pressed = SubResource( 3 )
 custom_styles/focus = SubResource( 4 )
 custom_styles/disabled = SubResource( 5 )
 custom_styles/normal = SubResource( 6 )
-custom_fonts/font = SubResource( 12 )
+custom_fonts/font = SubResource( 7 )
 custom_colors/font_color_disabled = Color( 0.0862745, 0.619608, 0.411765, 1 )
 custom_colors/font_color = Color( 0.0862745, 0.619608, 0.411765, 1 )
 custom_colors/font_color_hover = Color( 0.0980392, 0.54902, 0.372549, 1 )
@@ -113,7 +113,7 @@ custom_styles/pressed = SubResource( 2 )
 custom_styles/focus = SubResource( 9 )
 custom_styles/disabled = SubResource( 10 )
 custom_styles/normal = SubResource( 6 )
-custom_fonts/font = SubResource( 12 )
+custom_fonts/font = SubResource( 7 )
 custom_colors/font_color_disabled = Color( 0.0862745, 0.619608, 0.411765, 1 )
 custom_colors/font_color = Color( 0.0862745, 0.619608, 0.411765, 1 )
 custom_colors/font_color_hover = Color( 0.0980392, 0.54902, 0.372549, 1 )

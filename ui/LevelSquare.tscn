@@ -20,8 +20,9 @@ outline_color = Color( 0.0901961, 0.384314, 0.27451, 1 )
 use_mipmaps = true
 font_data = ExtResource( 1 )
 
-[sub_resource type="ShaderMaterial" id=4]
+[sub_resource type="ShaderMaterial" id=3]
 shader = ExtResource( 4 )
+shader_param/enable = true
 shader_param/line_color = Color( 0.0901961, 0.384314, 0.27451, 1 )
 shader_param/line_thickness = 15.0
 
@@ -51,19 +52,23 @@ margin_left = 5.0
 margin_top = 5.0
 margin_right = 105.0
 margin_bottom = 105.0
+mouse_filter = 2
 custom_constants/margin_right = 10
 custom_constants/margin_top = 10
 custom_constants/margin_left = 10
 custom_constants/margin_bottom = 10
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer"]
-material = SubResource( 4 )
+material = SubResource( 3 )
 margin_left = 10.0
 margin_top = 10.0
 margin_right = 90.0
 margin_bottom = 90.0
+mouse_filter = 2
 texture = ExtResource( 2 )
 expand = true
 stretch_mode = 6
 
 [connection signal="gui_input" from="." to="." method="_on_LevelSquare_gui_input"]
+[connection signal="mouse_entered" from="." to="." method="_on_LevelSquare_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_LevelSquare_mouse_exited"]

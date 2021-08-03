@@ -1,8 +1,11 @@
 extends Node
 
+export (AudioStream) var music
+
 var game_scene = null
 var num_levels = 0
 
+onready var current_menu = $MenuLayer/Title
 onready var overlay = $OverlayLayer
 onready var message = $MessageLayer
 
@@ -45,15 +48,18 @@ func _on_button_pressed(button):
 		"PlayButton":
 			$MenuLayer/Title.end()
 			$MenuLayer/LevelSelect.start()
+			current_menu = $MenuLayer/LevelSelect
 #			yield($MenuLayer/Title, "menu_ready")
 #			UI.overlay.wipe_in()
 #			yield(UI.overlay, "finished")
 #			$MenuLayer/Title.end()
 #			game_scene.start_game()
 		"SettingsButton":
-			var x = 2
 			pass
-			
+		"CloseButton":
+			$MenuLayer/Title.start()
+			current_menu.end()
+			current_menu = $MenuLayer/Title
 
 func go_to_title():
 	$MenuLayer/Title.start()
